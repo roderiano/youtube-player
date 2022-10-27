@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "UPlay",
+    "version": "0.0.1",
+    "action": {
+        "default_popup": "./html/player.html"
+    },
+    "permissions": [
+        "tabs",
+        "nativeMessaging"
+    ],
+    "content_scripts": [
+        {
+          "matches": ["http://*/*", "https://*/*"],
+          "js": ["./js/content.js"]
+        }
+    ]
+}
