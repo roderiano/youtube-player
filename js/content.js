@@ -9,12 +9,21 @@ chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
             case 'getYoutubeTabs':
                 var xpath_title = "//div[@id='header-description']/h3/yt-formatted-string/a[contains(@class, 'yt-simple-endpoint')]";
                 response = {
-                    "title": document.title
+                    "title": document.title,
+                    "url": location.href
                 }
                 break;
 
-            case 'playMusic':
+            case 'playVideo':
                 player.play();
+                break;
+
+            case 'getVideoStatus':
+                response = {
+                    "paused": player.paused,
+                    "currentTime": player.currentTime,
+                    "duration": player.duration
+                }
                 break;
 
             default:
